@@ -1,8 +1,11 @@
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Main from './pages/main/Main';
 import Test from './pages/test';
+import Location from './pages/location/Location';
+import SearchLocation from './pages/location/SearchLocation';
 import { Provider } from 'react-redux';
 import configureStore from 'store';
 
@@ -18,6 +21,13 @@ ReactDOM.render(
           component={Main}
         />
         <Route path={"/test"} component={Test} />
+      </Switch>
+      <Switch>
+        <Route
+          exact
+          path={"/search/location"}
+          component={SearchLocation}
+        />
       </Switch>
     </Router>
   </Provider>,
