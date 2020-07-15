@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Main from './pages/main/Main';
 import Test from './pages/test';
 import Location from './pages/location/Location';
+import Join from './pages/user/Join';
+import Mypage from './pages/user/Mypage';
 import SearchLocation from './pages/location/SearchLocation';
 import { Provider } from 'react-redux';
 import configureStore from 'store';
@@ -27,6 +29,20 @@ ReactDOM.render(
           exact
           path={"/search/location"}
           component={SearchLocation}
+        />
+      </Switch>
+      <Switch>
+        <Route
+          exact
+          path={"/user/mypage"}
+          component={Mypage}
+        />
+      </Switch>
+      <Switch>
+        <Route
+          exact
+          path={"/user/join"}
+          component={Join}
         />
       </Switch>
     </Router>
