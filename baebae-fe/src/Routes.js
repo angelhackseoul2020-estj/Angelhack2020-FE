@@ -6,7 +6,7 @@ import Location from './pages/location/Location';
 import Mypage from './pages/user/Mypage';
 import KakaoSignUp from './pages/user/KakaoSignUp';
 import SearchLocation from './pages/location/SearchLocation';
-import DealList from './pages/deal/List';
+import DealList from './pages/deal/DealList';
 
 const Routes = () => {
     return (

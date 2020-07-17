@@ -1,9 +1,9 @@
 import React from 'react';
 import Paper from 'common/components/Paper';
 
-const list = (props) => {
+const DealList = (props) => {
     console.log(props);
-    
+
     return (
         <div>
             딜 리스트
@@ -14,4 +14,4 @@ const list = (props) => {
     );
 };
 
-export default list;
+export default DealList;
