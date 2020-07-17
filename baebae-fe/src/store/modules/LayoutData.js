@@ -1,18 +1,18 @@
 import { createAction, handleActions } from 'redux-actions';
 
-const SET_ALERT = "SET_ALERT"
+const SET_OPEN_MENU = "layout/SET_OPEN_MENU"
 
-export const setAlertPopup = createAction(SET_ALERT);
+export const setOpenMenu = createAction(SET_OPEN_MENU);
 
 const initialState = {
-    alert: false
+    openMenu: false
 }
 
 export default handleActions({
-    [SET_ALERT]: (state, action) => {
+    [SET_OPEN_MENU]: (state, action) => {
         const newState = {
             ...state,
-            alert: action.payload
+            openMenu: action.payload
         }
         return newState
     }

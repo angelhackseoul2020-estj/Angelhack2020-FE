@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Main = () => {
+const list = () => {
     return (
         <div>
-            <p>메인</p>
+            딜 리스트
         </div>
     );
 };
 
-export default Main;
+export default list;

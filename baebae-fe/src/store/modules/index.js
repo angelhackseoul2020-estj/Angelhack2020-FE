@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import TestData from './TestData'
+import LayoutData from "./LayoutData";
 
 export default combineReducers({
-    TestData
+    LayoutData
 })
