@@ -1,11 +1,15 @@
 import React from 'react';
-import Accordion from "common/components/Accordion";
+import Paper from 'common/components/Paper';
 
-const list = () => {
+const list = (props) => {
+    console.log(props);
+    
     return (
         <div>
             딜 리스트
-            <Accordion title="영업 정보" details={"영업 정보입니다."} />
+            {['store1', 'store2', 'store3'].map(store => (
+                <Paper data={store} onClick={() => ''}/>
+            ))}
         </div>
     );
 };
