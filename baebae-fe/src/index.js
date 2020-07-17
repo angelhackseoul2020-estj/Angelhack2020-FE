@@ -3,7 +3,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Main from './pages/main/Main';
-import Test from './pages/test';
 import Location from './pages/location/Location';
 import Mypage from './pages/user/Mypage';
 import KakaoSignUp from './pages/user/KakaoSignUp';
@@ -22,23 +21,16 @@ ReactDOM.render(
           path={"/"}
           component={Main}
         />
-        <Route path={"/test"} component={Test} />
-      </Switch>
-      <Switch>
         <Route
           exact
           path={"/search/location"}
           component={SearchLocation}
         />
-      </Switch>
-      <Switch>
         <Route
           exact
           path={"/user/mypage"}
           component={Mypage}
         />
-      </Switch>
-      <Switch>
         <Route
           exact
           path={"/user/login"}
