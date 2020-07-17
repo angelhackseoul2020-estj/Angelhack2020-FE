@@ -3,12 +3,12 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 
-export default function SimpleContainer({ children }) {
+export default ({ children }) => {
     return (
         <React.Fragment>
             <CssBaseline />
             <Container maxWidth="sm">
-                <Typography component="div" style={{ height: '100vh' }}>
+                <Typography component="div">
                     {children}
                 </Typography>
             </Container>
