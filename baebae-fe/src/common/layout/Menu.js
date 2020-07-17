@@ -4,10 +4,12 @@ import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import { menuList } from './menuList.json';
 // redux
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as LayoutAction from 'store/modules/LayoutData';
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
     list: {
@@ -18,7 +20,8 @@ const useStyles = makeStyles({
     },
 });
 
-const Menu = ({ layoutData, layoutAction }) => {
+const Menu = (props) => {
+    const { layoutData, layoutAction } = props;
     const classes = useStyles();
 
     const [open, setOpen] = useState(false);
@@ -43,9 +46,9 @@ const Menu = ({ layoutData, layoutAction }) => {
             onKeyDown={closeDrawer()}
         >
             <List>
-                {['오늘의 딜', '커뮤니티', '내 정보'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemText primary={text} />
+                {menuList.map((menuItem, idx) => (
+                    <ListItem button key={idx} component={Link} to={menuItem.url}>
+                        <ListItemText primary={menuItem.text} />
                     </ListItem>
                 ))}
             </List>

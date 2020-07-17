@@ -1,37 +1,42 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
+// routes
 import Main from './pages/main/Main';
 import Location from './pages/location/Location';
 import Mypage from './pages/user/Mypage';
 import KakaoSignUp from './pages/user/KakaoSignUp';
 import SearchLocation from './pages/location/SearchLocation';
+import DealList from './pages/deal/List';
 
 const Routes = () => {
     return (
-        <Router>
-            <Switch>
-                <Route
-                    exact
-                    path={"/"}
-                    component={Main}
-                />
-                <Route
-                    exact
-                    path={"/search/location"}
-                    component={SearchLocation}
-                />
-                <Route
-                    exact
-                    path={"/user/mypage"}
-                    component={Mypage}
-                />
-                <Route
-                    exact
-                    path={"/user/login"}
-                    component={KakaoSignUp}
-                />
-            </Switch>
-        </Router>
+        <Switch>
+            <Route
+                exact
+                path={"/"}
+                component={Main}
+            />
+            <Route
+                exact
+                path={"/search/location"}
+                component={SearchLocation}
+            />
+            <Route
+                exact
+                path={"/user/mypage"}
+                component={Mypage}
+            />
+            <Route
+                exact
+                path={"/user/login"}
+                component={KakaoSignUp}
+            />
+            <Route
+                exact
+                path={"/deallist"}
+                component={DealList}
+            />
+        </Switch>
     );
 };
 
