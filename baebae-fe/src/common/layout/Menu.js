@@ -19,7 +19,6 @@ const useStyles = makeStyles({
 });
 
 const Menu = ({ layoutData, layoutAction }) => {
-    console.log(layoutData, layoutAction);
     const classes = useStyles();
 
     const [open, setOpen] = useState(false);
