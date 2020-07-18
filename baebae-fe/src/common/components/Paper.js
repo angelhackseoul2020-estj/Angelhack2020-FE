@@ -9,13 +9,10 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default ({ data }) => {
+export default ({ data, onClick }) => {
     const classes = useStyles();
-
-    console.log(data);
-
     return (
-        <Paper className={classes.root}>
+        <Paper className={classes.root} onClick={onClick}>
             <Typography variant="h6" color="primary" gutterBottom>
                 {data}
                 </Typography>

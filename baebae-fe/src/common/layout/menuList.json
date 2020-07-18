@@ -2,6 +2,6 @@
   "menuList": [
     { "text": "오늘의 딜", "url": "/deallist" },
     { "text": "커뮤니티", "url": "/" },
-    { "text": "내 정보", "url": "/" }
+    { "text": "내 주문", "url": "/" }
   ]
 }

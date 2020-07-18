@@ -1,0 +1,6 @@
+var DEFAULT_COLOR = '#04BF8A'
+var COLOR1 = '#F27781'
+var COLOR2 = '#18298C'
+var COLOR4 = '#F2CF1D'
+var COLOR5 = '#F29F05'
+

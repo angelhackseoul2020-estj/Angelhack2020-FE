@@ -7,6 +7,7 @@ import Mypage from './pages/user/Mypage';
 import KakaoSignUp from './pages/user/KakaoSignUp';
 import SearchLocation from './pages/location/SearchLocation';
 import DealList from './pages/deal/DealList';
+import DealInfo from './pages/deal/DealInfo';
 
 const Routes = () => {
     return (
@@ -35,6 +36,11 @@ const Routes = () => {
                 exact
                 path={"/deallist"}
                 component={DealList}
+            />
+            <Route
+                exact
+                path={"/dealinfo/:id"}
+                component={DealInfo}
             />
         </Switch>
     );

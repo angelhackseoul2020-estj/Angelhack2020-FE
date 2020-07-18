@@ -8,20 +8,23 @@ import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import { setOpenMenu } from 'store/modules/LayoutData';
 import { useDispatch, useStore } from 'react-redux';
+import { NavLink as Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
     },
     appbar: {
-        background: '#04BF8A'
+        background: window.DEFAULT_COLOR
     },
     menuButton: {
         marginRight: theme.spacing(2),
     },
     title: {
         flexGrow: 1,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        textDecoration: 'none',
+        color: 'white'
     },
 }));
 
@@ -43,12 +46,12 @@ export default function MenuAppBar() {
 
     return (
         <div className={classes.root}>
-            <AppBar position="static" className={classes.appbar}>
+            <AppBar position="static" className={classes.appbar} elevation={0}>
                 <Toolbar>
                     <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={handleMenu} >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" className={classes.title}>
+                    <Typography variant="h6" className={classes.title} component={Link} to={"/"}>
                         딜모아
                     </Typography>
                     {auth && (
