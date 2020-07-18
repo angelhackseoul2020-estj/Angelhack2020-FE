@@ -2,11 +2,16 @@ import React from 'react';
 import Accordion from "common/components/Accordion";
 import Paper from "common/components/Paper";
 
+const detailData = {
+    title: '딜 정보',
+    body: '딜 상세 내용'
+}
+
 const DealInfo = () => {
     return (
         <div>
             딜 상세정보
-            <Paper />
+            <Paper data={detailData}/>
             <Accordion title="영업 정보" details={
                 <dl>
                     <dt>운영시간</dt>

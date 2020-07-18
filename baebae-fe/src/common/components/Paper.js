@@ -11,6 +11,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default ({ data, onClick }) => {
     const classes = useStyles();
+    if(!data){
+        return <></>;
+    }
     const { title, body } = data;
     return (
         <Paper className={classes.root} onClick={onClick}>
