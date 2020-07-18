@@ -48,7 +48,7 @@ const Menu = (props) => {
             <List>
                 {menuList.map((menuItem, idx) => (
                     <ListItem button key={idx} component={Link} to={menuItem.url}>
-                        <ListItemText primary={menuItem.text} />
+                        <ListItemText primary={menuItem.text} style={{ color: menuItem.color }} />
                     </ListItem>
                 ))}
             </List>

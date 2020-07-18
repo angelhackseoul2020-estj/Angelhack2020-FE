@@ -11,12 +11,13 @@ const useStyles = makeStyles((theme) => ({
 
 export default ({ data, onClick }) => {
     const classes = useStyles();
+    const { title, body } = data;
     return (
         <Paper className={classes.root} onClick={onClick}>
             <Typography variant="h6" color="primary" gutterBottom>
-                {data}
-                </Typography>
-            <Typography variant="body1">딜 정보</Typography>
+                {title}
+            </Typography>
+            <Typography variant="body1">{body}</Typography>
         </Paper>
     );
 }

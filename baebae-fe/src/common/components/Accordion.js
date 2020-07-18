@@ -8,30 +8,33 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        width: '100%',
+        width: '100%'
     },
     heading: {
         fontSize: theme.typography.pxToRem(15),
         fontWeight: theme.typography.fontWeightRegular,
     },
+    accordion: {
+        margin: theme.spacing(1)
+    }
 }));
 
 export default ({ title, details }) => {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <Accordion>
+            <Accordion className={classes.accordion}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                 >
-                    <Typography className={classes.heading}>{title}</Typography>
+                    <Typography className={classes.heading}>
+                        {title}
+                    </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <Typography>
-                        {details}
-                    </Typography>
+                    {details}
                 </AccordionDetails>
             </Accordion>
         </div>
