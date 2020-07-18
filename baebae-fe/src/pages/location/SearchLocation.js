@@ -5,9 +5,6 @@ const SearchLocation = () => {
     const [addrInfo, setAddrInfo] = useState([]);
     const [postUseFlag, setPostUseFlag] = useState(false);
     
-    useEffect(() => {
-        getUserLocation();
-    })
 
     const handleComplete = (data) => {
         setAddrInfo({
@@ -50,29 +47,25 @@ const SearchLocation = () => {
     )
 
 }
+// const getCurrentLocation = () => {
+//     if (navigator.geolocation) {
+//         //위치 정보를 얻기
+//         navigator.geolocation.getCurrentPosition (function(pos) {
+//             console.log(pos.coords.latitude);     // 위도
+//             console.log(pos.coords.longitude); // 경도
+//         });
+//     } else {
+//         alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
+//     }
+    
+//     var callback = function(result, status) {
+        
+//         if(status === window.kakao.maps.services.Status.OK) {
+//             var locate = result[0].address_name;
+//             console.log('locate: ' + locate)
+//         }
+//     }    
+// }
 
-/*
-user의 address 정보
-null > getCurrentLocation()
-*/
-const getUserLocation = () => {
-    /*
-    if(userInfo.addr === null) {
-       
-    } else {
-        getCurrentLocation();
-    }
-    */
-}
-
-// 현재 위치 조회
-const getCurrentLocation = () => {
-
-}
-
-// 위치 검색
-const searchLocation = () => {
-
-}
 
 export default SearchLocation;

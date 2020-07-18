@@ -2,12 +2,11 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 // routes
 import Main from './pages/main/Main';
-import Location from './pages/location/Location';
 import Mypage from './pages/user/Mypage';
-import KakaoSignUp from './pages/user/KakaoSignUp';
 import SearchLocation from './pages/location/SearchLocation';
 import DealList from './pages/deal/DealList';
 import DealInfo from './pages/deal/DealInfo';
+import OrderComplete from './pages/order/OrderComplete';
 
 const Routes = () => {
     return (
@@ -29,11 +28,6 @@ const Routes = () => {
             />
             <Route
                 exact
-                path={"/user/login"}
-                component={KakaoSignUp}
-            />
-            <Route
-                exact
                 path={"/deallist"}
                 component={DealList}
             />
@@ -41,6 +35,11 @@ const Routes = () => {
                 exact
                 path={"/dealinfo/:id"}
                 component={DealInfo}
+            />
+            <Route
+                exact
+                path={"/order/complete"}
+                component={OrderComplete}
             />
         </Switch>
     );
