@@ -45,7 +45,7 @@ const OrderComplete = () => {
           매장정보
         </Typography>
         <ListItem>
-          <ListItemText primary={"매장명"} secondary={"김밥헤븐"} />
+          <ListItemText primary={"매장명"} secondary={"대만 반점"} />
         </ListItem>
         <ListItem>
           <ListItemText primary={"수령시간"} secondary={"준비완료 후 수령 가능"} />
@@ -57,7 +57,7 @@ const OrderComplete = () => {
           주문내역
         </Typography>
         <ListItem>
-          <ListItemText primary={"참치김밥"} secondary={"3,500 원"} />
+          <ListItemText primary={"짜장면"} secondary={"3,500 원"} />
         </ListItem>
       </div>
       <div className={classes.section3}>

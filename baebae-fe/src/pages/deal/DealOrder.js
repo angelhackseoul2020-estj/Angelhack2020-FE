@@ -1,21 +1,24 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Paper } from "@material-ui/core";
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import Checkbox from '@material-ui/core/Checkbox';
-import Button from '@material-ui/core/Button';
+import { Paper, List, ListItem, ListItemIcon, Checkbox, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        width: '100%',
-        maxWidth: 360,
-        backgroundColor: theme.palette.background.paper,
+    paper: {
+        padding: theme.spacing(2),
+        margin: theme.spacing(1),
     },
+    order: {
+        padding: theme.spacing(2),
+        margin: theme.spacing(1),
+        background: '#F37421'
+    },
+    dealTitle: {
+        color: 'white',
+        fontWeight: 'bolder'
+    }
 }));
 
-const DealOrder = () => {
+const DealOrder = (props) => {
     const classes = useStyles();
     const [checked, setChecked] = React.useState([0]);
 
@@ -32,10 +35,14 @@ const DealOrder = () => {
         setChecked(newChecked);
     };
 
+    const handleOrder = () => {
+        props.history.push("/order/complete");
+    }
+
     return (
         <div>
             추가 주문
-            <Paper variant="outlined">
+            <Paper variant="outlined" className={classes.paper}>
                 <List className={classes.root}>
                     {['간짜장', '짜장면', '짬뽕', '볶음밥', '탕수육', '깐풍기', '군만두'].map((value) => {
                         const labelId = `checkbox-list-label-${value}`;
@@ -61,7 +68,12 @@ const DealOrder = () => {
                     })}
                 </List>
             </Paper>
-            결제 버튼
+
+            <Paper className={classes.order} onClick={handleOrder}>
+                <Typography variant="h6" className={classes.dealTitle}>
+                    주문하기
+                </Typography>
+            </Paper>
         </div>
     );
 };
