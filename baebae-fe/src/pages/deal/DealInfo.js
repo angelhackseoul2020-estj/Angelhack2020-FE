@@ -1,17 +1,42 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Accordion from "common/components/Accordion";
 import Paper from "common/components/Paper";
+import { Paper as MPaper, Typography } from "@material-ui/core";
+import { makeStyles } from '@material-ui/core/styles';
 
-const detailData = {
-    title: '딜 정보',
-    body: '딜 상세 내용'
-}
+const useStyles = makeStyles((theme) => ({
+    paper: {
+        padding: theme.spacing(2),
+        margin: theme.spacing(1),
+        background: '#F37421'
+    },
+    dealTitle: {
+        color: 'white',
+        fontWeight: 'bolder'
+    }
+}));
 
-const DealInfo = () => {
+const DealInfo = (props) => {
+    const classes = useStyles();
+
+    const [detailData, setDetailData] = useState([]);
+
+    useEffect(() => {
+        setDetailData(props.history.location.state);
+    }, []);
+
+    const handleClickDeal = () => {
+        props.history.push('/dealorder');
+    }
+
     return (
         <div>
-            딜 상세정보
-            <Paper data={detailData}/>
+            <Paper data={detailData} />
+            <MPaper className={classes.paper} onClick={handleClickDeal}>
+                <Typography variant="h6" className={classes.dealTitle}>
+                    딜 참여하기
+                </Typography>
+            </MPaper>
             <Accordion title="영업 정보" details={
                 <dl>
                     <dt>운영시간</dt>

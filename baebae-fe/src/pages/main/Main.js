@@ -5,9 +5,9 @@ import Grid from '@material-ui/core/Grid';
 import KaKaoLogin from 'react-kakao-login';
 import styled from 'styled-components';
 import axios from 'axios';
-import { LOGIN_URL, USER_LOCATION_URL } from 'common/api';
-import DaumPostcode from 'react-daum-postcode';
-import KakaoLogin from 'react-kakao-login';
+import { LOGIN_URL } from 'common/api';
+// import DaumPostcode from 'react-daum-postcode';
+// import KakaoLogin from 'react-kakao-login';
 
 const useStyles = makeStyles((theme) => ({
     root: {

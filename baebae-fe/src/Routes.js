@@ -7,6 +7,7 @@ import MyOrder from './pages/user/MyOrder';
 import SearchLocation from './pages/location/SearchLocation';
 import DealList from './pages/deal/DealList';
 import DealInfo from './pages/deal/DealInfo';
+import DealOrder from './pages/deal/DealOrder';
 import OrderComplete from './pages/order/OrderComplete';
 
 const Routes = () => {
@@ -39,8 +40,13 @@ const Routes = () => {
             />
             <Route
                 exact
-                path={"/dealinfo/:id"}
+                path={"/dealinfo"}
                 component={DealInfo}
+            />
+            <Route
+                exact
+                path={"/dealorder"}
+                component={DealOrder}
             />
             <Route
                 exact
