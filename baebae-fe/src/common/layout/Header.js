@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function MenuAppBar() {
+export default function MenuAppBar(props) {
   const classes = useStyles();
   const [authInfo, setAutoInfo] = useState({
     login: false,
@@ -57,107 +57,12 @@ export default function MenuAppBar() {
     dispatch(setOpenMenu(true));
   };
 
-  const responseKaKao = (res) => {
-    const userInfo = {
-      id: res.profile.id,
-      connected_at: res.profile.id,
-      properties: res.profile.properties,
-      kakao_account: res.kakao_account
-    };
-
-    axios({
-      method: 'post',
-      url: LOGIN_URL,
-      data: {
-        kakaoLoginParam: userInfo
-      }
-    })
-      .then((res) => {
-        console.log('정상');
-        checkUserLocation(res);
-      })
-      .catch((res) => {
-        console.log('error!');
-      });
-  };
-
-  /*
-   const checkUserLocation = (userInfo) => {
-       if(userInfo.addr) {
-          moveDealPage(userInfo.addr.sigunguCode);
-       } else {// 유저 최초로그인
-           console.log('addr 없음');
-           getUserLocation(userInfo);
-       }
-   }
-
-  const getUserLocation = (userInfo) => {
-    setPostUseFlag(true);
-    setUserLocation(userInfo.id);
-    if (navigator.geolocation) {
-      //위치 정보를 얻기
-      navigator.geolocation.getCurrentPosition(function (pos) {
-        console.log(pos.coords.latitude); // 위도
-        console.log(pos.coords.longitude); // 경도
-      });
-    } else {
-      alert('이 브라우저에서는 Geolocation이 지원되지 않습니다.');
-    }
-  };
-
-  const setUserLocation = (id) => {
-    axios({
-      method: 'post',
-      url: USER_LOCATION_URL,
-      data: {
-        id,
-        param: addrInfo
-      }
-    })
-      .then((res) => {
-        moveDealPage(addrInfo.sigunguCode);
-      })
-      .catch((res) => {
-        console.log('error!');
-      });
-  };
-  */
-
-  const checkUserLocation = (userInfo) => {
-    if (userInfo.addr) {
-      moveDealPage(userInfo.addr.sigunguCode);
-    }
-  };
-
-
-  const moveDealPage = (sigunguCode) => {
-    document.location.href = '/deallist/' + sigunguCode;
-  };
-
-  const responseFail = (err) => {
-    console.log('에러');
-    console.dir(err);
-  };
-
-  const handleComplete = (data) => {
-    setAddrInfo({
-      address: data.address,
-      zonecode: data.zonecode,
-      addressEnglish: data.addressEnglish,
-      bname: data.bname,
-      sido: data.sido,
-      sigungu: data.sigungu,
-      sigunguCode: data.sigunguCode,
-      buildName: data.buildName,
-      hname: data.hname,
-      roadName: data.roadName,
-      jibunAddress: data.jibunAddress
-    });
-  };
+  if (window.location.pathname === "/") {
+    return <></>;
+  }
 
   return (
     <div className={classes.root}>
-      {postUseFlag ? <DaumPostcode onComplete={handleComplete} autoClose width="100%" height="auto" /> : null}
       <AppBar position="static" className={classes.appbar} elevation={0}>
         <Toolbar>
           <IconButton
@@ -173,21 +78,14 @@ export default function MenuAppBar() {
             <img className={classes.logo} src={'assets/image/dealmoa_korlogo.png'} />
           </Typography>
           {!authInfo['login'] && (
-            <AccountBtn
-              jsKey={'43d4b15342b031da9fc9351e80a7b95b'} // 딜모아 key값
-              onSuccess={responseKaKao}
-              onFailure={responseFail}
-              getProfile={true}
+            <IconButton
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              className={classes.icon}
             >
-              <IconButton
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                className={classes.icon}
-              >
-                <AccountCircle />
-              </IconButton>
-            </AccountBtn>
+              <AccountCircle />
+            </IconButton>
           )}
         </Toolbar>
       </AppBar>

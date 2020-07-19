@@ -1,7 +1,7 @@
 {
   "menuList": [
     { "text": "타임딜", "url": "/deallist" },
-    { "text": "내 주문내역", "url": "/" },
-    { "text": "로그아웃", "url": "/", "color": "#F37421" }
+    { "text": "내 주문내역", "url": "/user/myorder" },
+    { "text": "로그아웃", "url": "/logout", "color": "#F37421" }
   ]
 }

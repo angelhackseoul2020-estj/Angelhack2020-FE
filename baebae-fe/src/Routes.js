@@ -2,7 +2,8 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 // routes
 import Main from './pages/main/Main';
-import Mypage from './pages/user/Mypage';
+import MyPage from './pages/user/Mypage';
+import MyOrder from './pages/user/MyOrder';
 import SearchLocation from './pages/location/SearchLocation';
 import DealList from './pages/deal/DealList';
 import DealInfo from './pages/deal/DealInfo';
@@ -24,11 +25,16 @@ const Routes = () => {
             <Route
                 exact
                 path={"/user/mypage"}
-                component={Mypage}
+                component={MyPage}
             />
             <Route
                 exact
-                path={"/deallist/:sigunguCode"}
+                path={"/user/myorder"}
+                component={MyOrder}
+            />
+            <Route
+                exact
+                path={["/deallist", "/deallist/:sigunguCode"]}
                 component={DealList}
             />
             <Route
