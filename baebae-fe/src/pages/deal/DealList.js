@@ -7,12 +7,12 @@ import { Button, Grid, FormControl, MenuItem, Select } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 
 const listData1 = [
-    { shop_name: '김밥 헤븐', menu_name: '수제돈까스', image_url: '/assets/image/food/pork.png', price: '8000', discount_rate: 5, discount_price: '7600', now_people: 3, limit_people: 10 },
-    { shop_name: '김밥 헤븐', menu_name: '콩국수', image_url: '/assets/image/food/noodle.png', price: '7500', discount_rate: 5, discount_price: '7120', now_people: 3, limit_people: 10 },
+    { shop_name: '김밥 헤븐', menu_name: '수제돈까스', image_url: '/assets/image/food/pork.png', price: '8000', discount_rate: 7, discount_price: '7600', now_people: 3, limit_people: 10 },
+    { shop_name: '김밥 헤븐', menu_name: '콩국수', image_url: '/assets/image/food/noodle.png', price: '7500', discount_rate: 4, discount_price: '7120', now_people: 3, limit_people: 10 },
 ];
 const listData2 = [
-    { shop_name: '대만 반점', menu_name: '짬뽕', image_url: '/assets/image/food/jjamppong.png', price: '7000', discount_rate: 5, discount_price: '6650', now_people: 3, limit_people: 10 },
-    { shop_name: '대만 반점', menu_name: '짜장면', image_url: '/assets/image/food/jajangmyeon.png', price: '4000', discount_rate: 5, discount_price: '3500', now_people: 3, limit_people: 10 },
+    { shop_name: '대만 반점', menu_name: '짬뽕', image_url: '/assets/image/food/jjamppong.png', price: '7000', discount_rate: 8, discount_price: '6650', now_people: 3, limit_people: 10 },
+    { shop_name: '대만 반점', menu_name: '짜장면', image_url: '/assets/image/food/jajangmyeon.png', price: '4000', discount_rate: 9, discount_price: '3500', now_people: 3, limit_people: 10 },
 ]
 
 const useStyles = makeStyles((theme) => ({
