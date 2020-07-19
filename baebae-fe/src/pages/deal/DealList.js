@@ -3,15 +3,17 @@ import Paper from 'common/components/Paper';
 import { DEALLIST_URL } from 'common/api';
 import axios from 'axios';
 import DaumPostcode from 'react-daum-postcode';
-import { Button, Grid, FormControl, Select, MenuItem } from "@material-ui/core";
+import { Button, Grid, FormControl, MenuItem, Select } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 
-const listData = [
+const listData1 = [
     { shop_name: '김밥 헤븐', menu_name: '수제돈까스', image_url: '/assets/image/food/pork.png', price: '8000', discount_rate: 5, discount_price: '7600', now_people: 3, limit_people: 10 },
     { shop_name: '김밥 헤븐', menu_name: '콩국수', image_url: '/assets/image/food/noodle.png', price: '7500', discount_rate: 5, discount_price: '7120', now_people: 3, limit_people: 10 },
+];
+const listData2 = [
     { shop_name: '대만 반점', menu_name: '짬뽕', image_url: '/assets/image/food/jjamppong.png', price: '7000', discount_rate: 5, discount_price: '6650', now_people: 3, limit_people: 10 },
     { shop_name: '대만 반점', menu_name: '짜장면', image_url: '/assets/image/food/jajangmyeon.png', price: '4000', discount_rate: 5, discount_price: '3500', now_people: 3, limit_people: 10 },
-];
+]
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -61,9 +63,8 @@ const DealList = (props) => {
     }
 
     const handleComplete = (data) => {
+        console.dir(data)
         setPostUseFlag(false);
-        console.log(data.hname);
-
         const addressData = {
             address: data.address,
             zonecode: data.zonecode,
@@ -73,14 +74,14 @@ const DealList = (props) => {
             sigungu: data.sigungu,
             sigunguCode: data.sigunguCode,
             buildName: data.buildName,
-            hname: data.hname,
+            hname: data.bname,
             roadName: data.roadName,
             jibunAddress: data.jibunAddress
         }
         setAddrInfo({
             addressData: addressData
         })
-
+        console.dir(addrInfo)
         //getDealList(data.hname);
     }
 
@@ -114,10 +115,16 @@ const DealList = (props) => {
                     </Select>
                 </FormControl>
             </Grid>
-
-            {!postUseFlag &&
+            {!postUseFlag && addrInfo.addressData.hname === "대치1동" &&
                 <>
-                    {listData.map((store, idx) => (
+                    {listData1.map((store, idx) => (
+                        <Paper key={idx} data={store} onClick={() => handleDealList(store)} />
+                    ))}
+                </>
+            }
+            {!postUseFlag && addrInfo.addressData.hname !== "대치1동" &&
+                <>
+                    {listData2.map((store, idx) => (
                         <Paper key={idx} data={store} onClick={() => handleDealList(store)} />
                     ))}
                 </>
