@@ -28,7 +28,7 @@ const Routes = () => {
             />
             <Route
                 exact
-                path={"/deallist"}
+                path={"/deallist/:sigunguCode"}
                 component={DealList}
             />
             <Route
