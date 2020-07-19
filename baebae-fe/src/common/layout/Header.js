@@ -20,7 +20,8 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1
   },
   appbar: {
-    background: '#04BF8A'
+    background: '#fafafa',
+    borderBottom: '0.5px solid #7C7977'
   },
   menuButton: {
     marginRight: theme.spacing(2)
@@ -30,6 +31,14 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 'bold',
     textDecoration: 'none',
     color: 'white'
+  },
+  logo: {
+    width: '85px',
+    height: '35px',
+    paddingTop: '10px'
+  },
+  icon: {
+    color: '#7C7977'
   }
 }));
 
@@ -55,7 +64,7 @@ export default function MenuAppBar() {
       properties: res.profile.properties,
       kakao_account: res.kakao_account
     };
-    
+
     axios({
       method: 'post',
       url: LOGIN_URL,
@@ -119,7 +128,7 @@ export default function MenuAppBar() {
       moveDealPage(userInfo.addr.sigunguCode);
     }
   };
-  
+
 
   const moveDealPage = (sigunguCode) => {
     document.location.href = '/deallist/' + sigunguCode;
@@ -153,15 +162,15 @@ export default function MenuAppBar() {
         <Toolbar>
           <IconButton
             edge="start"
-            className={classes.menuButton}
-            color="inherit"
+            className={classes.menuButton, classes.icon}
+            color="primary"
             aria-label="menu"
             onClick={handleMenu}
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.title} component={Link} to={'/'}>
-            딜모아
+          <Typography variant="h6" align="center" className={classes.title} component={Link} to={'/'}>
+            <img className={classes.logo} src={'assets/image/dealmoa_korlogo.png'} />
           </Typography>
           {!authInfo['login'] && (
             <AccountBtn
@@ -174,7 +183,7 @@ export default function MenuAppBar() {
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
-                color="inherit"
+                className={classes.icon}
               >
                 <AccountCircle />
               </IconButton>
