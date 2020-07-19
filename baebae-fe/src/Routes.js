@@ -34,7 +34,7 @@ const Routes = () => {
             />
             <Route
                 exact
-                path={["/deallist", "/deallist/:sigunguCode"]}
+                path={"/deallist/:hname"}
                 component={DealList}
             />
             <Route
