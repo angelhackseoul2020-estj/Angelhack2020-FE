@@ -7,13 +7,10 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import { setOpenMenu } from 'store/modules/LayoutData';
-import { useDispatch, useStore } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { NavLink as Link } from 'react-router-dom';
 import KaKaoLogin from 'react-kakao-login';
 import styled from 'styled-components';
-import axios from 'axios';
-import { LOGIN_URL, USER_LOCATION_URL } from 'common/api';
-import DaumPostcode from 'react-daum-postcode';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -75,7 +72,7 @@ export default function MenuAppBar(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" align="center" className={classes.title} component={Link} to={'/'}>
-            <img className={classes.logo} src={'assets/image/dealmoa_korlogo.png'} />
+            <img className={classes.logo} src={'/assets/image/dealmoa_korlogo.png'} />
           </Typography>
           {!authInfo['login'] && (
             <IconButton
