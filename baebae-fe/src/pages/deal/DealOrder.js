@@ -4,6 +4,9 @@ import { Paper, List, ListItem, ListItemIcon, Checkbox, Typography, IconButton }
 import { AddIcon, AddCircle, RemoveCircle } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
+    root: {
+        flexGrow: 1
+    },
     paper: {
         padding: theme.spacing(2),
         margin: theme.spacing(1),
@@ -16,6 +19,9 @@ const useStyles = makeStyles((theme) => ({
     dealTitle: {
         color: 'white',
         fontWeight: 'bolder'
+    },
+    addIcon: {
+        marginRight: theme.spacing(2)
     }
 }));
 
@@ -49,21 +55,23 @@ const DealOrder = (props) => {
                         const labelId = `checkbox-list-label-${value}`;
 
                         return (
-                            <ListItem key={value} role={undefined} dense button onClick={handleToggle(value)}>
-                                <ListItemIcon>
-                                    <Checkbox
-                                        edge="start"
-                                        tabIndex={-1}
-                                        disableRipple
-                                        inputProps={{ 'aria-labelledby': labelId }}
-                                    />
-                                </ListItemIcon>
-                                {value}
-                                <div style={{ float: 'right' }}>
-                                    <RemoveCircle />
-                                    {1}
-                                    <AddCircle />
-                                </div>
+                            <ListItem key={value} style={{ display: 'inline-block' }} role={undefined} dense button onClick={handleToggle(value)}>
+                                <Typography>
+                                    <ListItemIcon>
+                                        <Checkbox
+                                            edge="start"
+                                            tabIndex={-1}
+                                            disableRipple
+                                            inputProps={{ 'aria-labelledby': labelId }}
+                                        />
+                                    </ListItemIcon>
+                                    {value}
+                                    <div style={{ float: 'right', marginTop: '10px' }} >
+                                        <RemoveCircle />
+                                        {1}
+                                        <AddCircle />
+                                    </div>
+                                </Typography>
                             </ListItem>
                         );
                     })}
