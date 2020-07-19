@@ -6,26 +6,28 @@ import DaumPostcode from 'react-daum-postcode';
 import { Button } from "@material-ui/core"
 
 const listData = [
-    { title: 'store1', body: '가게 정보1' }, 
-    { title: 'store2', body: '~~' }
+    { shop_name: '김밥 헤븐', menu_name : '수제돈까스', image_url : '', price: '8000', discount_rate: 5, discount_price : '7600', now_people: 3, limit_people: 10},
+    { shop_name: '김밥 헤븐', menu_name : '콩국수', image_url : '', price: '7500', discount_rate : 5, discount_price : '7120',now_people: 3, limit_people: 10},
+    { shop_name: '대만 반점', menu_name : '짬뽕',  image_url : '', price: '7000', discount_rate : 5, discount_price : '6650',now_people: 3, limit_people: 10},
+    { shop_name: '대만 반점', menu_name : '짜장면',  image_url : '', price: '6000', discount_rate : 5, discount_price : '5700',now_people: 3, limit_people: 10},
 ];
 
 const DealList = (props) => {
     const [postUseFlag, setPostUseFlag] = useState(false);
     const [dealList, setDealList] = useState([]);
     const [addrInfo, setAddrInfo] = useState([]);
-    const sigunguCode = props.match.params.sigunguCode;
+    const hname = props.match.params.hname;
     
     useEffect(() => {
-        getDealList(sigunguCode);
+        getDealList(hname);
     });
 
-    const getDealList = (sigunguCode) =>{
+    const getDealList = (hname) =>{
         axios({
             method: 'post',
             url: DEALLIST_URL,
             data: {
-                sigunguCode
+                hname
             }
           })
             .then((res) => {
@@ -60,7 +62,7 @@ const DealList = (props) => {
         }
         setAddrInfo(addressData);
         
-        getDealList(data.sigunguCode);
+        getDealList(data.hname);
     }
     
     return (
