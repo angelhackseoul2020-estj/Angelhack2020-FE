@@ -1,81 +1,78 @@
 import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    maxWidth: 360,
+    backgroundColor: theme.palette.background.paper,
+  },
+  section1: {
+    margin: theme.spacing(2),
+    paddingTop: theme.spacing(2)
+  },
+  section2: {
+    margin: theme.spacing(2),
+  },
+  section3: {
+    margin: theme.spacing(3, 1),
+    padding: theme.spacing(0),
+    background: '#eeeeee'
+  },
+}));
 
 const OrderComplete = () => {
+  const classes = useStyles();
+
   return (
-    <div id="wrap">
-      <div id="content" class="content nav_empty">
-        <section class="order_complete">
-          <h2 class="blind">주문 완료</h2>
-
-          <div class="order_header no_check">
-            <p class="orderstate-type-1" id="waitTimeEl"></p>
-            <p class="complete_al">
-              <ul class="order_content">
-                <li class="store_info">
-                  <dl>
-                    <dt>매장정보</dt>
-                    <dd>
-                      <ul>
-                        <li>매장명 : 홍콩반점</li>
-                        
-                        <li>
-                          <strong class="fst_col">수령시간</strong>
-                          <strong class="last_col highlight">준비완료 후 수령 가능</strong>
-                        </li>
-                      </ul>
-                    </dd>
-                  </dl>
-                </li>
-
-                <li class="order_history">
-                  <dl>
-                    <dt>주문내역</dt>
-                    <dd>
-                      <ul class="btm_list">
-                        <li>
-                          <strong class="fst_col">짜장면</strong>
-                          <strong class="sec_col">3,500 원</strong>
-                        </li>
-                      </ul>
-                    </dd>
-                  </dl>
-
-                  <dl class="orderAmount">
-                    <dt>총 주문 금액</dt>
-                    <dd>3,500 원</dd>
-                  </dl>
-                  <div class="row_total discount2">
-                    <p class="txt_total">총 결제 금액</p>
-                    <p class="num_total">
-                      3,500<span class="price_unit"> 원</span>
-                    </p>
-                  </div>
-                </li>
-                <li class="method_detail">
-                  <dl>
-                    <dt></dt>
-                    <dd>
-                      <ul>
-                        <li>
-                          <strong class="fst_col">승인일시</strong>
-                          <strong class="last_col">20200603</strong>
-                        </li>
-                        <li>
-                          <strong class="fst_col">승인번호</strong>
-                          <strong class="last_col"></strong>
-                        </li>
-                        <li>
-                          <strong class="fst_col">결제수단</strong>
-                          <strong class="last_col">신용카드</strong>
-                        </li>
-                      </ul>
-                    </dd>
-                  </dl>
-                </li>
-              </ul>
-            </p>
-          </div>
-        </section>
+    <div className={classes.root}>
+      <div className={classes.section1}>
+        <Typography gutterBottom variant="h4">
+          주문 완료
+          <Typography color="textSecondary" variant="h6">
+            총 주문 금액 3,500원
+          </Typography>
+        </Typography>
+      </div>
+      <Divider variant="middle" />
+      <div className={classes.section2}>
+        <Typography gutterBottom variant="body1">
+          매장정보
+        </Typography>
+        <ListItem>
+          <ListItemText primary={"매장명"} secondary={"김밥헤븐"} />
+        </ListItem>
+        <ListItem>
+          <ListItemText primary={"수령시간"} secondary={"준비완료 후 수령 가능"} />
+        </ListItem>
+      </div>
+      <Divider variant="middle" />
+      <div className={classes.section2}>
+        <Typography gutterBottom variant="body1">
+          주문내역
+        </Typography>
+        <ListItem>
+          <ListItemText primary={"참치김밥"} secondary={"3,500 원"} />
+        </ListItem>
+      </div>
+      <div className={classes.section3}>
+        <Button color="primary">결제정보</Button>
+        <List dense={true}>
+          <ListItem>
+            <b>승인일시&nbsp;</b>20200603
+          </ListItem>
+          <ListItem>
+            <b>승인번호&nbsp;</b>123456789
+          </ListItem>
+          <ListItem>
+            <b>결제수단&nbsp;</b>신용카드
+          </ListItem>
+        </List>
       </div>
     </div>
   );
