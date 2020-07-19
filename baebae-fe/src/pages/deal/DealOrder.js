@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Paper, List, ListItem, ListItemIcon, Checkbox, Typography } from "@material-ui/core";
+import { Paper, List, ListItem, ListItemIcon, Checkbox, Typography, IconButton } from "@material-ui/core";
+import { AddIcon, AddCircle, RemoveCircle } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -59,9 +60,9 @@ const DealOrder = (props) => {
                                 </ListItemIcon>
                                 {value}
                                 <div style={{ float: 'right' }}>
-                                    <button>-</button>
+                                    <RemoveCircle />
                                     {1}
-                                    <button>+</button>
+                                    <AddCircle />
                                 </div>
                             </ListItem>
                         );
