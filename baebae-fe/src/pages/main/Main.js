@@ -57,7 +57,7 @@ const Main = () => {
             checkUserLocation(res);
         }).catch((res) => {
             console.log('error!');
-            moveDealPage('대치 1동');
+            moveDealPage('대치1동');
         });
     };
 
