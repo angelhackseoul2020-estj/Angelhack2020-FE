@@ -60,17 +60,17 @@ export default function MenuAppBar() {
   const responseKaKao = (res) => {
     const userInfo = {
       id: res.profile.id,
-      connected_at: res.profile.id,
-      properties: res.profile.properties,
-      kakao_account: res.kakao_account
+      connected_at: res.profile.connected_at,
+      properties: res.profile.properties
     };
 
     axios({
       method: 'post',
-      url: LOGIN_URL,
-      data: {
-        kakaoLoginParam: userInfo
-      }
+      url: 'http://localhost:9091/auth/local',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      data: userInfo
     })
       .then((res) => {
         console.log('정상');
@@ -124,6 +124,7 @@ export default function MenuAppBar() {
   */
 
   const checkUserLocation = (userInfo) => {
+    console.log('checkUserLocation')
     if (userInfo.addr) {
       moveDealPage(userInfo.addr.sigunguCode);
     }
